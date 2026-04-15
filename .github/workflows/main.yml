@@ -1,22 +1,22 @@
 name: Generate Snake Animation                                                                                                                                       
                                                                                                                                                                        
-  on:                                                       
+  "on":                                                                                                                                                                
     schedule:
-      - cron: "0 0 * * *"
+      - cron: "0 0 * * *"                                                                                                                                              
     workflow_dispatch:
-
-  jobs:
+                                                                                                                                                                       
+  jobs:                                                     
     generate:
-      runs-on: ubuntu-latest                                                                                                                                           
-      steps:
-        - uses: Platane/snk@v3                                                                                                                                         
+      runs-on: ubuntu-latest
+      steps:                                                                                                                                                           
+        - uses: Platane/snk@v3
           with:                                                                                                                                                        
-            github_user_name: devigorfm
+            github_user_name: devigorfm                     
             outputs: |                                                                                                                                                 
-              dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+              dist/github-contribution-grid-snake-dark.svg?palette=github-dark                                                                                         
         - uses: crazy-max/ghaction-github-pages@v3                                                                                                                     
-          with:
+          with:                                                                                                                                                        
             target_branch: output                                                                                                                                      
             build_dir: dist                                                                                                                                            
-          env:
+          env:                                              
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
